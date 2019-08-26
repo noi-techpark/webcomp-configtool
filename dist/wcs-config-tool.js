@@ -1665,12 +1665,12 @@ function normalizeComponent (
   }
 }
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"b59bbdf4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/App.vue?vue&type=template&id=71c4302e&
-var Appvue_type_template_id_71c4302e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.show)?_c('ConfigurationForm',{attrs:{"config":_vm.getOptions},on:{"updated":_vm.updateResult}}):_vm._e()],1)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"b59bbdf4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/App.vue?vue&type=template&id=4b85d2b5&
+var Appvue_type_template_id_4b85d2b5_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.show)?_c('ConfigurationForm',{attrs:{"config":_vm.getOptions},on:{"updated":_vm.updateResult}}):_vm._e()],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=71c4302e&
+// CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=4b85d2b5&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
@@ -25457,10 +25457,6 @@ external_Vue_default.a.use(esm);
   computed: {
     getOptions() {
       return this.config.options;
-    },
-
-    getTagName() {
-      return this.config.tagName;
     }
 
   },
@@ -25477,7 +25473,7 @@ external_Vue_default.a.use(esm);
     },
 
     updateResult(event) {
-      var snippet = '<' + this.getTagName();
+      var snippet = '<' + this.config.tagName;
       event.forEach(item => {
         snippet = snippet + ' ' + item.key + '="' + item.data + '"';
       });
@@ -25509,7 +25505,7 @@ if (style0.__inject__) style0.__inject__(context)
 
 var App_component = normalizeComponent(
   src_Appvue_type_script_lang_js_,
-  Appvue_type_template_id_71c4302e_render,
+  Appvue_type_template_id_4b85d2b5_render,
   staticRenderFns,
   false,
   injectStyles,
