@@ -47,7 +47,7 @@ export default {
         snippet = snippet + ' ' + item.key + '="' + item.data + '"';
       });
 
-      snippet = snippet + '></' + this.getTagName() + '>';
+      snippet = snippet + '></' + this.config.tagName + '>';
 
       this.snippet = snippet;
 

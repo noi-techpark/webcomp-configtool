@@ -1665,12 +1665,12 @@ function normalizeComponent (
   }
 }
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"b59bbdf4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/App.vue?vue&type=template&id=4b85d2b5&
-var Appvue_type_template_id_4b85d2b5_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.show)?_c('ConfigurationForm',{attrs:{"config":_vm.getOptions},on:{"updated":_vm.updateResult}}):_vm._e()],1)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"b59bbdf4-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/App.vue?vue&type=template&id=4f50be04&
+var Appvue_type_template_id_4f50be04_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.show)?_c('ConfigurationForm',{attrs:{"config":_vm.getOptions},on:{"updated":_vm.updateResult}}):_vm._e()],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=4b85d2b5&
+// CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=4f50be04&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("ac6a");
@@ -25477,7 +25477,7 @@ external_Vue_default.a.use(esm);
       event.forEach(item => {
         snippet = snippet + ' ' + item.key + '="' + item.data + '"';
       });
-      snippet = snippet + '></' + this.getTagName() + '>';
+      snippet = snippet + '></' + this.config.tagName + '>';
       this.snippet = snippet;
       this.emitResult();
     },
@@ -25505,7 +25505,7 @@ if (style0.__inject__) style0.__inject__(context)
 
 var App_component = normalizeComponent(
   src_Appvue_type_script_lang_js_,
-  Appvue_type_template_id_4b85d2b5_render,
+  Appvue_type_template_id_4f50be04_render,
   staticRenderFns,
   false,
   injectStyles,
