@@ -1,0 +1,23 @@
+{
+  "title": "WCS Config Tool",
+  "description": "Configuration tool for all Webcomponents.",
+  "descriptionAbstract": "Configuration tool for all Webcomponents.",
+  "license": "n/a",
+  "authors": [
+    {
+      "name": "KONVERTO",
+      "email": "info@konverto.eu",
+      "organization": "KONVERTO AG",
+      "organizationUrl": "https://konverto.eu"
+    }
+  ],
+  "searchTags": ["tool"],
+  "dist": {
+    "basePath": "dist",
+    "files": ["wcs-config-tool.min.js"]
+  },
+  "configuration": {
+    "tagName": "wcs-config-tool",
+    "options": []
+  }
+}
