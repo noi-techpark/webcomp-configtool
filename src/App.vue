@@ -1,7 +1,7 @@
 <template>
   <div>
     <ConfigurationForm
-      :config="getConfig"
+      :config="getOptions"
       v-if="show"
       v-on:updated="updateResult"
     ></ConfigurationForm>
@@ -15,10 +15,10 @@ import BootstrapVue from 'bootstrap-vue';
 
 Vue.use(BootstrapVue);
 export default {
-  props: {
-    tagName: String
-  },
   components: { ConfigurationForm },
+  props: {
+    test: String
+  },
   data() {
     return {
       show: false,
@@ -27,13 +27,11 @@ export default {
     };
   },
   computed: {
-    getConfig() {
-      console.log(this);
-      //if (this.$slots['default'] && this.$slots.default[0]) {
-      return this.config;
-      //} else {
-      //  return [];
-      //}
+    getOptions() {
+      return this.config.options;
+    },
+    getTagName() {
+      return this.config.tagName;
     }
   },
   mounted() {
@@ -41,29 +39,22 @@ export default {
   },
   methods: {
     initConfig() {
-      //this.$emit('sepp', 'goil');
-
       this.config = JSON.parse(this.$slots.default[0].text);
+      console.log('XXX', this.config);
       this.show = true;
     },
     updateResult(event) {
-      let snippet = '<' + this.tagName;
-
-      console.log(event, event.length);
+      let snippet = '<' + this.getTagName();
 
       event.forEach((item) => {
-        console.log('x');
         snippet = snippet + ' ' + item.key + '="' + item.data + '"';
       });
 
-      snippet = snippet + '></' + this.tagName + '>';
+      snippet = snippet + '></' + this.getTagName() + '>';
 
       this.snippet = snippet;
 
       this.emitResult();
-
-      console.log(event, this.snippet);
-      //TODO: update snippet
     },
     emitResult() {
       this.$emit('snippet', this.snippet);

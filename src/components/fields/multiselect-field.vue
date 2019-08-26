@@ -2,6 +2,7 @@
   <b-form-select
     v-model="selected"
     :options="options.values"
+    v-on:change="changed"
     multiple
   ></b-form-select>
 </template>
@@ -12,12 +13,21 @@ export default {
     options: {
       type: Object,
       required: true
+    },
+    fieldKey: {
+      type: String,
+      required: true
     }
   },
   data() {
     return {
       selected: this.options.default
     };
+  },
+  methods: {
+    changed() {
+      this.$emit('updated', { key: this.fieldKey, data: this.selected });
+    }
   }
 };
 </script>
