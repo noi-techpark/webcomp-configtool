@@ -29,9 +29,6 @@ export default {
   computed: {
     getOptions() {
       return this.config.options;
-    },
-    getTagName() {
-      return this.config.tagName;
     }
   },
   mounted() {
@@ -44,7 +41,7 @@ export default {
       this.show = true;
     },
     updateResult(event) {
-      let snippet = '<' + this.getTagName();
+      let snippet = '<' + this.config.tagName;
 
       event.forEach((item) => {
         snippet = snippet + ' ' + item.key + '="' + item.data + '"';
