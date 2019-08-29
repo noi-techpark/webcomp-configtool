@@ -1,33 +1,45 @@
 <template>
+  <div>
     <b-form-textarea
-            v-model="value"
-            :placeholder="options.placeholder"
-            type="text"
-            v-on:change="changed"
+      v-model="value"
+      :placeholder="options.placeholder"
+      type="text"
+      v-on:change="changed"
     ></b-form-textarea>
+    <div v-if="!isValid" class="invalid-feedback d-block">
+      Value is invalid.
+    </div>
+  </div>
 </template>
 
 <script>
-  export default {
-    props: {
-      options: {
-        type: Object,
-        required: true
-      },
-      fieldKey: {
-        type: String,
-        required: true
-      }
+import mixins from '../common/field-mixin';
+export default {
+  mixins: [mixins],
+  props: {
+    options: {
+      type: Object,
+      required: true
     },
-    data() {
-      return {
-        value: this.options.default
-      };
+    fieldKey: {
+      type: String,
+      required: true
     },
-    methods: {
-      changed() {
-        this.$emit('updated', { key: this.fieldKey, data: this.value });
-      }
+    required: {
+      type: Boolean,
+      required: false,
+      default: false
     }
-  };
+  },
+  data() {
+    return {
+      value: this.options.default
+    };
+  },
+  computed: {
+    isValid() {
+      return this.required === false || (this.value && this.value.length > 0);
+    }
+  }
+};
 </script>

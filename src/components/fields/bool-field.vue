@@ -1,9 +1,19 @@
 <template>
-  <b-form-checkbox v-model="value" v-on:change="changed"></b-form-checkbox>
+  <div>
+    <b-form-checkbox name="fieldKey" v-model="value" v-on:change="changed">{{
+      options.description
+    }}</b-form-checkbox>
+    <div v-if="!isValid" class="invalid-feedback d-block">
+      Value is invalid.
+    </div>
+  </div>
 </template>
 
 <script>
+import mixins from '../common/field-mixin';
 export default {
+  mixins: [mixins],
+
   props: {
     options: {
       type: Object,
@@ -12,16 +22,21 @@ export default {
     fieldKey: {
       type: String,
       required: true
+    },
+    required: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   data() {
     return {
-      value: this.options.default
+      value: this.options.default || false
     };
   },
-  methods: {
-    changed() {
-      this.$emit('updated', { key: this.fieldKey, data: this.value });
+  computed: {
+    isValid() {
+      return this.value === true || this.required === false;
     }
   }
 };

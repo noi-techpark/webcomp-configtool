@@ -1,57 +1,70 @@
 <template>
-  <div>
+  <form ref="theForm">
     <div v-for="field in config" :key="field.key">
       <b-form-group
         :id="'input-group-' + field.key"
-        :label="field.key"
+        :label="labelOrKey(field)"
         :label-for="'input-' + field.key"
       >
         <BoolField
           v-if="field.type === 'bool'"
           :fieldKey="field.key"
           :options="field.options"
+          :required="field.required"
           v-on:updated="fieldUpdated"
+          v-on:init="fieldInit"
         ></BoolField>
         <MultiselectField
           v-else-if="field.type === 'multiselect'"
           :fieldKey="field.key"
           :options="field.options"
+          :required="field.required"
           v-on:updated="fieldUpdated"
+          v-on:init="fieldInit"
         ></MultiselectField>
         <NumberField
           v-else-if="field.type === 'number'"
           :fieldKey="field.key"
           :options="field.options"
+          :required="field.required"
           v-on:updated="fieldUpdated"
+          v-on:init="fieldInit"
         ></NumberField>
         <ObjectField
           v-else-if="field.type === 'object'"
           :fieldKey="field.key"
           :options="field.options"
+          :required="field.required"
           v-on:updated="fieldUpdated"
+          v-on:init="fieldInit"
         ></ObjectField>
         <SelectField
           v-else-if="field.type === 'select'"
           :fieldKey="field.key"
           :options="field.options"
+          :required="field.required"
           v-on:updated="fieldUpdated"
+          v-on:init="fieldInit"
         ></SelectField>
         <TextField
           v-else-if="field.type === 'text'"
           :fieldKey="field.key"
           :options="field.options"
+          :required="field.required"
           v-on:updated="fieldUpdated"
+          v-on:init="fieldInit"
         ></TextField>
         <TextAreaField
           v-else-if="field.type === 'textarea'"
           :fieldKey="field.key"
           :options="field.options"
+          :required="field.required"
           v-on:updated="fieldUpdated"
+          v-on:init="fieldInit"
         ></TextAreaField>
       </b-form-group>
     </div>
-    {{ config }}
-  </div>
+  </form>
 </template>
 
 <script>
@@ -81,31 +94,56 @@ export default {
   },
   data() {
     return {
-      fields: []
+      fields: [],
+      fieldsInitialized: 0
     };
   },
-  mounted() {
-    this.initFields();
+  computed: {
+    formValid() {
+      let isValid = true;
+
+      this.fields.forEach(field => {
+        if (field.valid === false) {
+          isValid = false;
+        }
+      });
+
+      return isValid;
+    }
   },
   methods: {
-    initFields() {
-      this.config.forEach(item => {
-        this.fields.push({ key: item.key, data: item.options.default });
-      });
+    fieldInit(field) {
+      this.updateFieldData(field);
+
+      this.fieldsInitialized++;
+
+      if (this.fieldsInitialized === this.config.length) {
+        this.emitData();
+      }
+    },
+    fieldUpdated(field) {
+      this.updateFieldData(field);
 
       this.emitData();
     },
-    fieldUpdated(event) {
+    updateFieldData(field) {
       this.fields = this.fields.filter(item => {
-        return item.key !== event.key;
+        return item.key !== field.key;
       });
 
-      this.fields.push(event);
-
-      this.emitData();
+      this.fields.push(field);
     },
     emitData() {
-      this.$emit('updated', this.fields);
+      if (this.formValid) {
+        this.$emit('updated', this.fields);
+      }
+    },
+    labelOrKey(item) {
+      if (item.label && item.label.length > 0) {
+        return item.label;
+      }
+
+      return item.key;
     }
   }
 };

@@ -5,6 +5,9 @@
       v-if="show"
       v-on:updated="updateResult"
     ></ConfigurationForm>
+    <div v-if="error">
+      Error while loading config.
+    </div>
   </div>
 </template>
 
@@ -16,12 +19,10 @@ import BootstrapVue from 'bootstrap-vue';
 Vue.use(BootstrapVue);
 export default {
   components: { ConfigurationForm },
-  props: {
-    test: String
-  },
   data() {
     return {
       show: false,
+      error: false,
       config: [],
       snippet: null
     };
@@ -36,14 +37,21 @@ export default {
   },
   methods: {
     initConfig() {
-      this.config = JSON.parse(this.$slots.default[0].text);
-      console.log('XXX', this.config);
-      this.show = true;
+      if (this.$slots.default && this.$slots.default[0]) {
+        try {
+          this.config = JSON.parse(this.$slots.default[0].text);
+          this.show = true;
+        } catch (e) {
+          this.error = true;
+        }
+      } else {
+        this.error = true;
+      }
     },
     updateResult(event) {
       let snippet = '<' + this.config.tagName;
 
-      event.forEach((item) => {
+      event.forEach(item => {
         snippet = snippet + ' ' + item.key + '="' + item.data + '"';
       });
 
