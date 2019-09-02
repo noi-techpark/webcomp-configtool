@@ -1,0 +1,1 @@
+vue-cli-service build --target wc --name wcs-config-tool ./src/App.vue
