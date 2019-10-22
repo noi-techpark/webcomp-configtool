@@ -1,7 +1,7 @@
 <template>
   <div>
     <ConfigurationForm
-      :config="config"
+      :config="config.options"
       v-on:updated="updateResult"
     ></ConfigurationForm>
   </div>
@@ -17,8 +17,8 @@ export default {
   components: { ConfigurationForm },
   props: {
     config: {
-      type: Array,
-      default: () => []
+      type: Object,
+      default: () => {}
     }
   },
   data() {

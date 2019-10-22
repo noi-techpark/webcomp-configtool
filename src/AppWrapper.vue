@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     getOptions() {
-      return this.config.options;
+      return this.config;
     }
   },
   mounted() {
