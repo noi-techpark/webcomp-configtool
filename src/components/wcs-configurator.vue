@@ -1,53 +1,32 @@
 <template>
   <div>
     <ConfigurationForm
-      :config="getOptions"
-      v-if="show"
+      :config="config.options"
       v-on:updated="updateResult"
     ></ConfigurationForm>
-    <div v-if="error">
-      Error while loading config.
-    </div>
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
-import ConfigurationForm from './components/configuration-form';
+import ConfigurationForm from './wcs-configuration-form';
 import BootstrapVue from 'bootstrap-vue';
 
 Vue.use(BootstrapVue);
 export default {
   components: { ConfigurationForm },
+  props: {
+    config: {
+      type: Object,
+      default: () => {}
+    }
+  },
   data() {
     return {
-      show: false,
-      error: false,
-      config: [],
       snippet: null
     };
   },
-  computed: {
-    getOptions() {
-      return this.config.options;
-    }
-  },
-  mounted() {
-    setTimeout(this.initConfig, 100);
-  },
   methods: {
-    initConfig() {
-      if (this.$slots.default && this.$slots.default[0]) {
-        try {
-          this.config = JSON.parse(this.$slots.default[0].text);
-          this.show = true;
-        } catch (e) {
-          this.error = true;
-        }
-      } else {
-        this.error = true;
-      }
-    },
     updateResult(event) {
       let snippet = '<' + this.config.tagName;
 
@@ -67,7 +46,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-@import 'assets/styles/style';
-</style>
