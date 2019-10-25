@@ -1,7 +1,7 @@
 <template>
   <div>
     <ConfigurationForm
-      :config="config.options"
+      :config="config.options || []"
       v-on:updated="updateResult"
     ></ConfigurationForm>
   </div>
