@@ -111,6 +111,11 @@ export default {
       return isValid;
     }
   },
+  mounted() {
+    if (this.config.length === 0) {
+      this.emitData();
+    }
+  },
   methods: {
     fieldInit(field) {
       this.updateFieldData(field);
