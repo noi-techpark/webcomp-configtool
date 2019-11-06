@@ -1,5 +1,8 @@
 <template>
   <form ref="theForm">
+    <div v-if="config.length === 0">
+      There are not options avaiable.
+    </div>
     <div v-for="field in config" :key="field.key">
       <b-form-group
         :id="'input-group-' + field.key"
@@ -110,6 +113,13 @@ export default {
 
       return isValid;
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      if (this.config.length === 0) {
+        this.emitData();
+      }
+    }, 300);
   },
   methods: {
     fieldInit(field) {
