@@ -62,6 +62,8 @@ Build and start the project:
 yarn run build
 ```
 
+The application will be served and can be accessed at [http://localhost:8080](http://localhost:8080).
+
 ## Tests and linting
 
 The linting can be executed with the following command:
