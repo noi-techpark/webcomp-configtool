@@ -4,16 +4,16 @@ A web component that allows to graphically configure other web components via ma
 
 ## Table of contents
 
-- [Component configuration](#component-configuration)
+- [Usage](#Usage)
 - [Gettings started](#getting-started)
 - [Tests and linting](#tests-and-linting)
 - [Deployment](#deployment)
 - [Docker environment](#docker-environment)
 - [Information](#information)
 
-## Component configuration
+## Usage
 
-The HTML of the web component in action would look like this:
+Include the Javascript file `dist/webcomp-config-tool.min.js` in your HTML and define the web component like this:
 
 ```html
 <webcomp-configtool></webcomp-configtool>
