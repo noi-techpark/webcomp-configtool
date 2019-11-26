@@ -29,7 +29,7 @@ on your local machine for development and testing purposes.
 To build the project, the following prerequisites must be met:
 
 - ToDo: Check the prerequisites
-- Node 12 / NPM 6
+- Node 12 / Yarn 1
 
 For a ready to use Docker environment with all prerequisites already installed and prepared, you can check out the [Docker environment](#docker-environment) section.
 
