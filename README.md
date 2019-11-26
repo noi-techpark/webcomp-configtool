@@ -2,19 +2,22 @@
 
 A web component that allows to graphically configure other web components via manifest files.
 
+## Table of contents
+
+- [Component configuration](#component-configuration)
+- [Gettings started](#getting-started)
+- [Tests and linting](#tests-and-linting)
+- [Deployment](#deployment)
+- [Docker environment](#docker-environment)
+- [Information](#information)
+
+## Component configuration
+
 The HTML of the web component in action would look like this:
 
 ```html
 <webcomp-configtool></webcomp-configtool>
 ```
-
-## Table of contents
-
-- [Gettings started](#getting-started)
-- [Tests and Linting](#tests-and-linting)
-- [Deployment](#deployment)
-- [Docker environment](#docker-environment)
-- [Information](#information)
 
 ## Getting started
 
@@ -60,7 +63,7 @@ Build and start the project:
 yarn run build
 ```
 
-## Tests and Linting
+## Tests and linting
 
 The linting can be executed with the following command:
 
