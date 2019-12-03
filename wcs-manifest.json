@@ -2,7 +2,7 @@
   "title": "WCS Config Tool",
   "description": "Configuration tool for all Webcomponents.",
   "descriptionAbstract": "Configuration tool for all Webcomponents.",
-  "license": "n/a",
+  "license": "AGPL-3.0",
   "authors": [
     {
       "name": "KONVERTO",
