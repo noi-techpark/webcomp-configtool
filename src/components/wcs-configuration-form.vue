@@ -1,7 +1,7 @@
 <template>
   <form ref="theForm">
     <div v-if="config.length === 0">
-      There are not options avaiable.
+      There are no options available.
     </div>
     <div v-for="field in config" :key="field.key">
       <b-form-group
