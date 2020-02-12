@@ -106,6 +106,8 @@ Before start working you have to start the Docker containers:
 docker-compose up --build --detach
 ```
 
+See `docker-compose.yml` to know which port is used to access the application.
+
 After finished working you can stop the Docker containers:
 
 ```
