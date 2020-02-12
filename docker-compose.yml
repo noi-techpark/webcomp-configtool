@@ -5,7 +5,7 @@ services:
         build: 
             context: .
             dockerfile: ./dockerfile-node-local
-        working_dir: /code/work
+        working_dir: /code/dist
         command: http-server
         volumes:
             - ./:/code
