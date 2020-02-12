@@ -13,10 +13,10 @@ A web component that allows to graphically configure other web components via ma
 
 ## Usage
 
-Include the Javascript file `dist/webcomp-config-tool.min.js` in your HTML and define the web component like this:
+Include the Javascript file `dist/wcs-config-tool.min.js` in your HTML and define the web component like this:
 
 ```html
-<webcomp-configtool></webcomp-configtool>
+<wcs-config-tool></wcs-config-tool>
 ```
 
 ## Getting started
