@@ -9,6 +9,14 @@
         :label="labelOrKey(field)"
         :label-for="'input-' + field.key"
       >
+        <NullField
+          v-if="field.type === 'null'"
+          :fieldKey="field.key"
+          :options="field.options"
+          :required="field.required"
+          v-on:updated="fieldUpdated"
+          v-on:init="fieldInit"
+        ></NullField>
         <BoolField
           v-if="field.type === 'bool'"
           :fieldKey="field.key"
@@ -71,6 +79,7 @@
 </template>
 
 <script>
+import NullField from './fields/null-field';
 import BoolField from './fields/bool-field';
 import MultiselectField from './fields/multiselect-field';
 import NumberField from './fields/number-field';
@@ -87,6 +96,7 @@ export default {
     }
   },
   components: {
+    NullField,
     BoolField,
     MultiselectField,
     NumberField,
