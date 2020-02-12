@@ -31,7 +31,9 @@ export default {
       let snippet = '<' + this.config.tagName;
 
       event.forEach(item => {
-        snippet = snippet + ' ' + item.key + '="' + item.data + '"';
+        snippet = snippet + ' ' + item.key
+        if (item.type !== 'null')
+          snippet = snippet + '="' + item.data + '"';
       });
 
       snippet = snippet + '></' + this.config.tagName + '>';
