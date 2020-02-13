@@ -1,0 +1,33 @@
+<meta charset="utf-8">
+<title>wcs-config-tool demo</title>
+<script src="https://unpkg.com/vue"></script>
+<script src="./dist/wcs-config-tool.js"></script>
+
+
+<wcs-config-tool>
+  {
+    "tagName": "e-mobility-dashboard-widget",
+    "options": [
+      {
+        "key": "bz",
+        "label": "Only Bolzano/Bozen?",
+        "type": "null",
+        "required": false,
+        "options": {
+          "default": false
+        }
+      },
+      {
+        "key": "language",
+        "type": "select",
+        "label": "Language",
+        "required": false,
+        "options": {
+          "values": ["en", "de", "it", "nl", "cs", "pl", "fr", "ru"],
+          "default": "en"
+        }
+      }
+    ]
+  }
+</wcs-config-tool>
+
