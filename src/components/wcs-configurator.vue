@@ -29,16 +29,22 @@ export default {
   methods: {
     updateResult(event) {
       let snippet = '<' + this.config.tagName;
-
       event.forEach(item => {
-        snippet = snippet + ' ' + item.key
-        if (item.type !== 'null')
-          snippet = snippet + '="' + item.data + '"';
+        var curConf = this.config.options.find(obj => obj.key == item.key);
+        if (curConf.type == 'null') {
+          if (item.data && item.data === true) {
+            snippet = snippet + ' ' + item.key;
+          }
+        } else {
+          snippet = snippet + ' ' + item.key + '="' + item.data + '"';
+        }
       });
 
       snippet = snippet + '></' + this.config.tagName + '>';
 
       this.snippet = snippet;
+
+      console.log(snippet);
 
       this.emitResult();
     },

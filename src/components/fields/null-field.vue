@@ -24,14 +24,14 @@ export default {
       required: true
     },
     required: {
-      type: Boolean,
+      type: null,
       required: false,
-      default: false
+      default: null
     }
   },
   data() {
     return {
-      value: this.options.default || false
+      value: this.options.default || null
     };
   },
   computed: {
