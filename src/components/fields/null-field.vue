@@ -26,17 +26,17 @@ export default {
     required: {
       type: null,
       required: false,
-      default: null
+      default: false
     }
   },
   data() {
     return {
-      value: this.options.default || null
+      value: this.options.default || false
     };
   },
   computed: {
     isValid() {
-      return this.value === true || this.required === false;
+      return this.value === true || this.value === false || this.required === false;
     }
   }
 };

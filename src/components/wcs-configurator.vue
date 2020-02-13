@@ -39,13 +39,7 @@ export default {
           snippet = snippet + ' ' + item.key + '="' + item.data + '"';
         }
       });
-
-      snippet = snippet + '></' + this.config.tagName + '>';
-
-      this.snippet = snippet;
-
-      console.log(snippet);
-
+      this.snippet = snippet + '></' + this.config.tagName + '>';
       this.emitResult();
     },
     emitResult() {
