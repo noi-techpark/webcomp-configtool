@@ -2,12 +2,16 @@ version: '3.4'
 
 services:
     app:
-        build: 
-            context: .
-            dockerfile: ./dockerfile-node-local
-        working_dir: /code/dist
-        command: http-server
+        image: node:11.15-slim
+        working_dir: /code
+        command: yarn run watch
         volumes:
             - ./:/code
+        tty: true
+    nginx:
+        image: nginx
+        volumes:
+            - ./:/code
+        command: sh -c "rm -rf /usr/share/nginx/html && ln -s /code/dist /usr/share/nginx/html && tail -f /dev/null"
         ports:
-            - "8989:8080"
+            - "8989:80"
