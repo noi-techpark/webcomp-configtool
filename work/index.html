@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <title>wcs-config-tool demo</title>
 <script src="https://unpkg.com/vue"></script>
-<script src="./dist/wcs-config-tool.js"></script>
+<script src="../dist/wcs-config-tool.js"></script>
 
 
 <wcs-config-tool>
@@ -9,9 +9,45 @@
     "tagName": "e-mobility-dashboard-widget",
     "options": [
       {
-        "key": "bz",
-        "label": "Only Bolzano/Bozen?",
+        "key": "opt-null",
+        "label": "opt-null label",
         "type": "null",
+        "required": false,
+        "options": {
+          "default": false
+        }
+      },
+      {
+        "key": "opt-bool1",
+        "label": "opt-bool label",
+        "type": "bool",
+        "required": true,
+        "options": {
+          "default": true
+        }
+      },
+      {
+        "key": "opt-bool2",
+        "label": "opt-bool label",
+        "type": "bool",
+        "required": false,
+        "options": {
+          "default": true
+        }
+      },
+      {
+        "key": "opt-bool3",
+        "type": "bool",
+        "label": "Disable car routing, if present only public means will be shown",
+        "required": true,
+        "options": {
+          "default": false
+        }
+      },
+      {
+        "key": "opt-bool4",
+        "label": "opt-bool label",
+        "type": "bool",
         "required": false,
         "options": {
           "default": false
@@ -30,4 +66,3 @@
     ]
   }
 </wcs-config-tool>
-
