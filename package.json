@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "vue-cli-service build --target wc --name wcs-config-tool ./src/AppWrapper.vue",
-    "watch": "vue-cli-service build --watch --target wc --name wcs-config-tool ./src/AppWrapper.vue",
+    "watch": "vue-cli-service build --watch --mode development --target wc --name wcs-config-tool ./src/AppWrapper.vue",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
