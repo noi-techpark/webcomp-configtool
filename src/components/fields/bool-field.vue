@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     isValid() {
-      return this.value === true || this.required === false;
+      return this.value === true || this.value === false || this.required === false;
     }
   }
 };
