@@ -2,11 +2,13 @@ version: '3.4'
 
 services:
   app:
-    image: node:11.15-slim
+    build:
+      context: .
+      dockerfile: infrastructure/docker/node.dockerfile
     volumes:
-        - ./:/code
-    command: yarn run watch
+      - ./:/code
     working_dir: /code
+    command: sh -c "test -d node_modules || yarn; yarn watch
     tty: true
   serve:
     image: python:3.6-alpine
