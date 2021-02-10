@@ -37,10 +37,14 @@ export default {
           }
         } else {
           var quotes = '"';
-          if ((typeof item.data === "string" || item.data instanceof String) && item.data.includes('"')) {
-              quotes = "'";
+          if (
+            (typeof item.data === 'string' || item.data instanceof String) &&
+            item.data.includes('"')
+          ) {
+            quotes = "'";
           }
-          snippet = snippet + ' ' + item.key + '=' + quotes + item.data + quotes;
+          snippet =
+            snippet + ' ' + item.key + '=' + quotes + item.data + quotes;
         }
       });
       this.snippet = snippet + '></' + this.config.tagName + '>';
