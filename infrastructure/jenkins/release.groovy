@@ -16,7 +16,7 @@ pipeline {
         WC_GIT_REMOTE = get_git_remote()
         WC_GIT_BRANCH = get_git_branch()
         WC_DIST_PATH = "dist"
-
+    }
     stages {
         stage('Clean') {
             steps {
