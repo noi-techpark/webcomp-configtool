@@ -18,14 +18,6 @@ pipeline {
         WC_DIST_PATH = "dist"
     }
     stages {
-        stage('Clean') {
-            steps {
-                sh '''
-                  rm -rf dist node_modules
-                  yarn cache clean
-                '''
-            }
-        }
         stage('Dependencies') {
             steps {
                 sh 'yarn'
