@@ -1,12 +1,11 @@
 <template>
   <div>
-    <b-form-select
+    <Multiselect
       v-model="value"
       :options="options.values"
       v-on:change="changed"
-      multiple
       :disabled="disabled"
-    ></b-form-select>
+    ></Multiselect>
     <div v-if="!required" class="cursor-pointer" style="font-size: small;">
       <a v-if="!disabled" @click="disableField">[disable]</a>
       <a v-else @click="enableField">[enable]</a>
@@ -18,8 +17,10 @@
 </template>
 
 <script>
+import Multiselect from 'vue-multiselect';
 import mixins from '../common/field-mixin';
 export default {
+  components: { Multiselect },
   mixins: [mixins],
   props: {
     options: {
