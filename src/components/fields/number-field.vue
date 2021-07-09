@@ -9,7 +9,12 @@
       :step="options.step"
       v-on:change="changed"
       multiple
+      :disabled="disabled"
     ></b-form-input>
+    <div v-if="!required" class="cursor-pointer" style="font-size: small;">
+      <a v-if="!disabled" @click="disableField">[disable]</a>
+      <a v-else @click="enableField">[enable]</a>
+    </div>
     <div v-if="!isValid" class="invalid-feedback d-block">
       Value is invalid.
     </div>

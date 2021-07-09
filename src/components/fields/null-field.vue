@@ -1,8 +1,17 @@
 <template>
   <div>
-    <b-form-checkbox name="fieldKey" v-model="value" v-on:change="changed">{{
-      options.description
-    }}</b-form-checkbox>
+    <b-form-checkbox
+      name="fieldKey"
+      v-model="value"
+      switch
+      :disabled="disabled"
+      v-on:change="changed"
+      >{{ options.description }}</b-form-checkbox
+    >
+    <div v-if="!required" class="cursor-pointer" style="font-size: small;">
+      <a v-if="!disabled" @click="disableField">[disable]</a>
+      <a v-else @click="enableField">[enable]</a>
+    </div>
     <div v-if="!isValid" class="invalid-feedback d-block">
       Value is invalid.
     </div>

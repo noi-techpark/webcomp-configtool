@@ -155,7 +155,12 @@ export default {
     },
     emitData() {
       if (this.formValid) {
-        this.$emit('updated', this.fields);
+        this.$emit(
+          'updated',
+          this.fields.filter(field => {
+            return !field.disabled;
+          })
+        );
       }
     },
     labelOrKey(item) {
