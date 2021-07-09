@@ -3,8 +3,9 @@
     <Multiselect
       v-model="value"
       :options="options.values"
-      v-on:change="changed"
+      v-on:input="changed"
       :disabled="disabled"
+      :multiple="true"
     ></Multiselect>
     <div v-if="!required" class="cursor-pointer" style="font-size: small;">
       <a v-if="!disabled" @click="disableField">[disable]</a>
@@ -44,7 +45,7 @@ export default {
   },
   computed: {
     isValid() {
-      return this.required === false || this.value.length > 0;
+      return this.required === false || (this.value && this.value.length > 0);
     }
   }
 };
