@@ -59,4 +59,5 @@ export default {
 
 <style lang="scss">
 @import './assets/styles/style';
+@import '../node_modules/vue-multiselect/dist/vue-multiselect.min.css';
 </style>
