@@ -3,9 +3,14 @@
     <b-form-input
       v-model="value"
       :placeholder="options.placeholder"
+      :disabled="disabled"
       type="text"
       v-on:change="changed"
     ></b-form-input>
+    <div v-if="!required" class="cursor-pointer" style="font-size: small;">
+      <a v-if="!disabled" @click="disableField">[disable]</a>
+      <a v-else @click="enableField">[enable]</a>
+    </div>
     <div v-if="!isValid" class="invalid-feedback d-block">
       Value is invalid.
     </div>
