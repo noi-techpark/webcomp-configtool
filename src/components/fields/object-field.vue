@@ -7,7 +7,7 @@
       v-on:change="changed"
       :disabled="disabled"
     ></b-form-textarea>
-    <div v-if="!required" class="cursor-pointer" style="font-size: small;">
+    <div v-if="!required" class="cursor-pointer" style="font-size: small">
       <a v-if="!disabled" @click="disableField">[disable]</a>
       <a v-else @click="enableField">[enable]</a>
     </div>
@@ -25,27 +25,39 @@ export default {
   props: {
     options: {
       type: Object,
-      required: true
+      required: true,
     },
     fieldKey: {
       type: String,
-      required: true
+      required: true,
     },
     required: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
+    restoreValue: {
+      type: String,
+      default: null,
+    },
   },
   data() {
     return {
-      value: JSON.stringify(this.options.default)
+      value: this.restoreValue || JSON.stringify(this.options.default),
     };
   },
   computed: {
     isValid() {
       return this.required === false || (this.value && this.value.length > 0);
+    },
+  },
+  watch: {
+    restoreValue(value) {
+      if (value) {
+        this.value = value;
+        this.changed()
+      }
     }
-  }
+  },
 };
 </script>

@@ -8,7 +8,7 @@
       v-on:change="changed"
       >{{ options.description }}</b-form-checkbox
     >
-    <div v-if="!required" class="cursor-pointer" style="font-size: small;">
+    <div v-if="!required" class="cursor-pointer" style="font-size: small">
       <a v-if="!disabled" @click="disableField">[disable]</a>
       <a v-else @click="enableField">[enable]</a>
     </div>
@@ -26,21 +26,25 @@ export default {
   props: {
     options: {
       type: Object,
-      required: true
+      required: true,
     },
     fieldKey: {
       type: String,
-      required: true
+      required: true,
     },
     required: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
+    restoreValue: {
+      type: [Boolean, String],
+      default: null,
+    },
   },
   data() {
     return {
-      value: this.options.default || false
+      value: this.restoreValue || this.options.default || false,
     };
   },
   computed: {
@@ -48,7 +52,43 @@ export default {
       return (
         this.value === true || this.value === false || this.required === false
       );
+    },
+  },
+  created() {
+    const res = this.correctRestoreValue(
+      this.restoreValue
+    );
+    if (res) {
+      this.value = res;
     }
-  }
+  },
+  watch: {
+    restoreValue(value) {
+      const res = this.correctRestoreValue(
+        value
+      );
+      if (res) {
+        this.value = res;
+        this.changed()
+      }
+    }
+  },
+  methods: {
+    correctRestoreValue(restoreValue) {
+      let type = typeof restoreValue;
+      let castValue = null;
+      if (type === 'string') {
+        if (restoreValue === 'true') {
+          castValue = true;
+        } else if (restoreValue === 'false') {
+          castValue = false;
+        }
+      } else if (type === 'boolean') {
+        castValue = restoreValue;
+      }
+
+      return castValue;
+    },
+  },
 };
 </script>
