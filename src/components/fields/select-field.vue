@@ -72,7 +72,7 @@ export default {
       let type = typeof validOptions[0];
       let castValue;
       if (type === 'number') {
-        const cast = Integer.valueOf(restoreValue);
+        const cast = Number.parseInt(restoreValue);
         if (cast) {
           castValue = cast;
         }
