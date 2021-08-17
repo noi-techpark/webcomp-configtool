@@ -60,15 +60,12 @@ export default {
   },
   watch: {
     restoreValue(value) {
-      const res = this.correctRestoreValue(
-        value,
-        this.options.values
-      );
+      const res = this.correctRestoreValue(value, this.options.values);
       if (res) {
         this.value = res;
-        this.changed()
+        this.changed();
       }
-    }
+    },
   },
   methods: {
     correctRestoreValue(restoreValue, validOptions) {
@@ -85,8 +82,6 @@ export default {
           castValue = cast;
         }
       }
-
-      console.log(castValue);
 
       if (
         validOptions.find((entry) => {

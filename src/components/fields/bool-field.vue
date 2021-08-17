@@ -44,7 +44,7 @@ export default {
   },
   data() {
     return {
-      value: this.restoreValue || this.options.default || false,
+      value: this.options.default || false,
     };
   },
   computed: {
@@ -55,23 +55,19 @@ export default {
     },
   },
   created() {
-    const res = this.correctRestoreValue(
-      this.restoreValue
-    );
+    const res = this.correctRestoreValue(this.restoreValue);
     if (res) {
       this.value = res;
     }
   },
   watch: {
     restoreValue(value) {
-      const res = this.correctRestoreValue(
-        value
-      );
+      const res = this.correctRestoreValue(value);
       if (res) {
         this.value = res;
-        this.changed()
+        this.changed();
       }
-    }
+    },
   },
   methods: {
     correctRestoreValue(restoreValue) {

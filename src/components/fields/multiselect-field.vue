@@ -14,7 +14,7 @@
     <div v-if="!isValid" class="invalid-feedback d-block">
       Value is invalid.
     </div>
-    {{value}}
+    {{ value }}
   </div>
 </template>
 
@@ -64,34 +64,29 @@ export default {
   },
   watch: {
     restoreValue(value) {
-      const res = this.correctRestoreValue(
-        value,
-        this.options.values
-      );
+      const res = this.correctRestoreValue(value, this.options.values);
       if (res) {
         this.value = res;
-        this.changed()
+        this.changed();
       }
-    }
+    },
   },
   methods: {
     correctRestoreValue(restoreValue, validOptions) {
-      if(!restoreValue) {
+      if (!restoreValue) {
         return null;
       }
 
-      let restored = []; // restoreValue;
-
-      console.log("x", restoreValue)
+      let restored = [];
 
       const type = typeof restoreValue;
-      if(type === 'string') {
+      if (type === 'string') {
         restored = restoreValue.split(',');
       }
 
       let allValid = true;
 
-      if(restored) {
+      if (restored) {
         restored.forEach((value) => {
           if (
             !validOptions.find((entry) => {

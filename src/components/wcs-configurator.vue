@@ -34,6 +34,7 @@ export default {
   methods: {
     updateResult(event) {
       let snippet = '<' + this.config.tagName;
+
       event.sort((a, b) => {
         var nameA = a.key.toUpperCase(); // ignore upper and lowercase
         var nameB = b.key.toUpperCase(); // ignore upper and lowercase
@@ -47,6 +48,7 @@ export default {
         // names must be equal
         return 0;
       });
+
       event.forEach((item) => {
         var curConf = this.config.options.find((obj) => obj.key === item.key);
         if (curConf.type === 'null') {
@@ -64,22 +66,20 @@ export default {
 
           let data = item.data;
 
-          if(curConf.type === 'multiselect') {
-            console.log(item.data)
+          if (curConf.type === 'multiselect') {
             data = item.data.join(',');
-            console.log(data)
-            if(data.includes('"')) {
+            if (data.includes('"')) {
+              // TODO: this does not properly escape things if there are both quotes present
               quotes = "'";
             }
           }
 
-          snippet =
-            snippet + ' ' + item.key + '=' + quotes + data + quotes;
+          snippet = snippet + ' ' + item.key + '=' + quotes + data + quotes;
         }
       });
       this.snippet = snippet + '></' + this.config.tagName + '>';
 
-      console.log(snippet)
+      console.log(snippet);
       this.emitResult();
     },
     emitResult() {

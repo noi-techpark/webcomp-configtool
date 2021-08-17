@@ -56,10 +56,9 @@ export default {
   },
   watch: {
     restoreValue(value) {
-      console.log(value)
-        this.value = value;
-        this.changed()
-    }
+      this.value = value;
+      this.changed();
+    },
   },
 };
 </script>

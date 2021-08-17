@@ -54,9 +54,9 @@ export default {
     restoreValue(value) {
       if (value) {
         this.value = value;
-        this.changed()
+        this.changed();
       }
-    }
+    },
   },
 };
 </script>

@@ -134,17 +134,13 @@ export default {
       const element = testElement.childNodes[0];
       const attributes = element.attributes;
 
-
-
       for (var i = 0; i < attributes.length; i++) {
         const attribute = attributes[i];
 
-        const encodedStr = attribute.value.replace("©", "&copy;");
+        const encodedStr = attribute.value.replace('©', '&copy;'); // TODO: this is an issue for all html entities
 
         values[attribute.name] = encodedStr;
       }
-
-      console.log(values);
 
       return values;
     },
