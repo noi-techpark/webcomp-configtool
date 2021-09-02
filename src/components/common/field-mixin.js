@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      disabled: false
+      disabled: false,
     };
   },
   mounted() {
@@ -18,7 +18,7 @@ export default {
         key: this.fieldKey,
         data: this.value,
         valid: this.isValid,
-        disabled: this.disabled
+        disabled: this.disabled,
       });
     },
     enableField() {
@@ -28,6 +28,6 @@ export default {
     disableField() {
       this.disabled = true;
       this.changed();
-    }
-  }
+    },
+  },
 };
