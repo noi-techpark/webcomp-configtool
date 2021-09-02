@@ -98,12 +98,12 @@ export default {
   props: {
     config: {
       type: Array,
-      required: true,
+      required: true
     },
     restoreSnippet: {
       type: String,
-      default: null,
-    },
+      default: null
+    }
   },
   components: {
     NullField,
@@ -113,12 +113,12 @@ export default {
     ObjectField,
     SelectField,
     TextField,
-    TextAreaField,
+    TextAreaField
   },
   data() {
     return {
       fields: [],
-      fieldsInitialized: 0,
+      fieldsInitialized: 0
     };
   },
   computed: {
@@ -147,14 +147,14 @@ export default {
     formValid() {
       let isValid = true;
 
-      this.fields.forEach((field) => {
+      this.fields.forEach(field => {
         if (field.valid === false) {
           isValid = false;
         }
       });
 
       return isValid;
-    },
+    }
   },
   mounted() {
     setTimeout(() => {
@@ -179,7 +179,7 @@ export default {
       this.emitData();
     },
     updateFieldData(field) {
-      this.fields = this.fields.filter((item) => {
+      this.fields = this.fields.filter(item => {
         return item.key !== field.key;
       });
 
@@ -189,7 +189,7 @@ export default {
       if (this.formValid) {
         this.$emit(
           'updated',
-          this.fields.filter((field) => {
+          this.fields.filter(field => {
             return !field.disabled;
           })
         );
@@ -201,7 +201,7 @@ export default {
       }
 
       return item.key;
-    },
-  },
+    }
+  }
 };
 </script>

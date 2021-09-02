@@ -24,31 +24,31 @@ export default {
   props: {
     options: {
       type: Object,
-      required: true,
+      required: true
     },
     fieldKey: {
       type: String,
-      required: true,
+      required: true
     },
     required: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     restoreValue: {
       type: [String, Number],
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
-      value: this.restoreValue || this.options.default,
+      value: this.restoreValue || this.options.default
     };
   },
   computed: {
     isValid() {
       return this.required === false || (this.value && this.value.length > 0);
-    },
+    }
   },
   watch: {
     restoreValue(value) {
@@ -56,7 +56,7 @@ export default {
         this.value = value;
         this.changed();
       }
-    },
-  },
+    }
+  }
 };
 </script>

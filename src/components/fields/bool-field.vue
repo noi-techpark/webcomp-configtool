@@ -26,25 +26,25 @@ export default {
   props: {
     options: {
       type: Object,
-      required: true,
+      required: true
     },
     fieldKey: {
       type: String,
-      required: true,
+      required: true
     },
     required: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     restoreValue: {
       type: [Boolean, String],
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
-      value: this.options.default || false,
+      value: this.options.default || false
     };
   },
   computed: {
@@ -52,7 +52,7 @@ export default {
       return (
         this.value === true || this.value === false || this.required === false
       );
-    },
+    }
   },
   created() {
     const res = this.correctRestoreValue(this.restoreValue);
@@ -67,7 +67,7 @@ export default {
         this.value = res;
         this.changed();
       }
-    },
+    }
   },
   methods: {
     correctRestoreValue(restoreValue) {
@@ -84,7 +84,7 @@ export default {
       }
 
       return castValue;
-    },
-  },
+    }
+  }
 };
 </script>

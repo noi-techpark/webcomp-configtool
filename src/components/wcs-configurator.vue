@@ -19,16 +19,16 @@ export default {
   props: {
     config: {
       type: Object,
-      default: () => {},
+      default: () => {}
     },
     restoreSnippet: {
       type: String,
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
-      snippet: null,
+      snippet: null
     };
   },
   methods: {
@@ -49,8 +49,8 @@ export default {
         return 0;
       });
 
-      event.forEach((item) => {
-        var curConf = this.config.options.find((obj) => obj.key === item.key);
+      event.forEach(item => {
+        var curConf = this.config.options.find(obj => obj.key === item.key);
         if (curConf.type === 'null') {
           if (item.data && item.data === true) {
             snippet = snippet + ' ' + item.key;
@@ -84,7 +84,7 @@ export default {
     },
     emitResult() {
       this.$emit('snippet', this.snippet);
-    },
-  },
+    }
+  }
 };
 </script>

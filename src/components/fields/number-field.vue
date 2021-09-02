@@ -28,25 +28,25 @@ export default {
   props: {
     options: {
       type: Object,
-      required: true,
+      required: true
     },
     fieldKey: {
       type: String,
-      required: true,
+      required: true
     },
     required: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     restoreValue: {
       type: [String, Number],
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
-      value: this.options.default,
+      value: this.options.default
     };
   },
   computed: {
@@ -55,7 +55,7 @@ export default {
         this.required === false ||
         (this.value && !Number.isNaN(this.value.length))
       );
-    },
+    }
   },
   created() {
     const res = this.correctRestoreValue(this.restoreValue);
@@ -70,7 +70,7 @@ export default {
         this.value = res;
         this.changed();
       }
-    },
+    }
   },
   methods: {
     correctRestoreValue(restoreValue) {
@@ -87,7 +87,7 @@ export default {
       }
 
       return null;
-    },
-  },
+    }
+  }
 };
 </script>

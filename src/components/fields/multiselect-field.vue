@@ -27,31 +27,31 @@ export default {
   props: {
     options: {
       type: Object,
-      required: true,
+      required: true
     },
     fieldKey: {
       type: String,
-      required: true,
+      required: true
     },
     required: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     restoreValue: {
       type: [Array, String],
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
-      value: [],
+      value: []
     };
   },
   computed: {
     isValid() {
       return this.required === false || (this.value && this.value.length > 0);
-    },
+    }
   },
   created() {
     const res = this.correctRestoreValue(
@@ -69,7 +69,7 @@ export default {
         this.value = res;
         this.changed();
       }
-    },
+    }
   },
   methods: {
     correctRestoreValue(restoreValue, validOptions) {
@@ -87,9 +87,9 @@ export default {
       let allValid = true;
 
       if (restored) {
-        restored.forEach((value) => {
+        restored.forEach(value => {
           if (
-            !validOptions.find((entry) => {
+            !validOptions.find(entry => {
               return entry === value;
             })
           ) {
@@ -103,7 +103,7 @@ export default {
       }
 
       return null;
-    },
-  },
+    }
+  }
 };
 </script>
