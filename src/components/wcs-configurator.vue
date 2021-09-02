@@ -2,6 +2,7 @@
   <div>
     <ConfigurationForm
       :config="config.options || []"
+      :restore-snippet="restoreSnippet"
       v-on:updated="updateResult"
     ></ConfigurationForm>
   </div>
@@ -18,20 +19,39 @@ export default {
   props: {
     config: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
+    restoreSnippet: {
+      type: String,
+      default: null,
+    },
   },
   data() {
     return {
-      snippet: null
+      snippet: null,
     };
   },
   methods: {
     updateResult(event) {
       let snippet = '<' + this.config.tagName;
-      event.forEach(item => {
-        var curConf = this.config.options.find(obj => obj.key == item.key);
-        if (curConf.type == 'null') {
+
+      event.sort((a, b) => {
+        var nameA = a.key.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.key.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+
+        // names must be equal
+        return 0;
+      });
+
+      event.forEach((item) => {
+        var curConf = this.config.options.find((obj) => obj.key === item.key);
+        if (curConf.type === 'null') {
           if (item.data && item.data === true) {
             snippet = snippet + ' ' + item.key;
           }
@@ -43,16 +63,28 @@ export default {
           ) {
             quotes = "'";
           }
-          snippet =
-            snippet + ' ' + item.key + '=' + quotes + item.data + quotes;
+
+          let data = item.data;
+
+          if (curConf.type === 'multiselect') {
+            data = item.data.join(',');
+            if (data.includes('"')) {
+              // TODO: this does not properly escape things if there are both quotes present
+              quotes = "'";
+            }
+          }
+
+          snippet = snippet + ' ' + item.key + '=' + quotes + data + quotes;
         }
       });
       this.snippet = snippet + '></' + this.config.tagName + '>';
+
+      console.log(snippet);
       this.emitResult();
     },
     emitResult() {
       this.$emit('snippet', this.snippet);
-    }
-  }
+    },
+  },
 };
 </script>
