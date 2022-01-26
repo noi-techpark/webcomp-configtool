@@ -1,6 +1,6 @@
 # webcomp-configtool
 
-[![ci webcomp-configtool](https://github.com/noi-techpark/webcomp-configtool/actions/workflows/ci.yml/badge.svg)](https://github.com/noi-techpark/webcomp-configtool/actions/workflows/ci.yml)
+[![CI](https://github.com/noi-techpark/webcomp-configtool/actions/workflows/ci.yml/badge.svg)](https://github.com/noi-techpark/webcomp-configtool/actions/workflows/ci.yml)
 
 A web component that allows to graphically configure other web components via manifest files.
 
