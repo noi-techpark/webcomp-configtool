@@ -3,10 +3,6 @@ Upstream-Name: webcomp-configtool
 Upstream-Contact: NOI Techpark <digital@noi.bz.it>
 Source: https://github.com/noi-techpark/webcomp-configtool
 
-Files: src/* work/* dist/*
-Copyright: 2020 NOI Techpark <digital@noi.bz.it>
-License: AGPL-3.0-or-later
-
-Files: infrastructure/* .editorconfig .gitignore *.md *.txt .env.* *.yml *.json yarn.lock webpack.* wcs-logo.png .browserslistrc .eslintrc.js .prettierrc *.config.js
-Copyright: 2020 NOI Techpark <digital@noi.bz.it>
+Files: .github/* infrastructure/* .gitignore LICENSE.md .editorconfig .env.example .browserslistrc .prettierrc yarn.lock *.png *.json *.svg *.map dist/wcs-config-tool.*
+Copyright: (c) NOI Techpark <digital@noi.bz.it>
 License: CC0-1.0
