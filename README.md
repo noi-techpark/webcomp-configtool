@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2020 NOI Techpark <digital@noi.bz.it>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # webcomp-configtool
 
 [![CI](https://github.com/noi-techpark/webcomp-configtool/actions/workflows/ci.yml/badge.svg)](https://github.com/noi-techpark/webcomp-configtool/actions/workflows/ci.yml)
