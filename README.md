@@ -6,7 +6,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # webcomp-configtool
 
-![REUSE Compliance](https://github.com/noi-techpark/webcomp-configtool/actions/workflows/reuse.yml/badge.svg)
+[![REUSE Compliance](https://github.com/noi-techpark/webcomp-configtool/actions/workflows/reuse.yml/badge.svg)](https://github.com/noi-techpark/odh-docs/wiki/REUSE#badges)
 [![CI](https://github.com/noi-techpark/webcomp-configtool/actions/workflows/ci.yml/badge.svg)](https://github.com/noi-techpark/webcomp-configtool/actions/workflows/ci.yml)
 
 A web component that allows to graphically configure other web components via manifest files.
