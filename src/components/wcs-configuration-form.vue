@@ -104,12 +104,12 @@ export default {
   props: {
     config: {
       type: Array,
-      required: true
+      required: true,
     },
     restoreSnippet: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   components: {
     NullField,
@@ -119,12 +119,12 @@ export default {
     ObjectField,
     SelectField,
     TextField,
-    TextAreaField
+    TextAreaField,
   },
   data() {
     return {
       fields: [],
-      fieldsInitialized: 0
+      fieldsInitialized: 0,
     };
   },
   computed: {
@@ -140,27 +140,28 @@ export default {
       const element = testElement.childNodes[0];
       const attributes = element.attributes;
 
-      for (var i = 0; i < attributes.length; i++) {
-        const attribute = attributes[i];
-
-        const encodedStr = attribute.value.replace('©', '&copy;'); // TODO: this is an issue for all html entities
-
-        values[attribute.name] = encodedStr;
+      if (!attributes) {
+        return values;
       }
+
+      attributes.forEach((attribute) => {
+        const encodedStr = attribute.value.replace('©', '&copy;'); // TODO: this is an issue for all html entities
+        values[attribute.name] = encodedStr;
+      });
 
       return values;
     },
     formValid() {
       let isValid = true;
 
-      this.fields.forEach(field => {
+      this.fields.forEach((field) => {
         if (field.valid === false) {
           isValid = false;
         }
       });
 
       return isValid;
-    }
+    },
   },
   mounted() {
     setTimeout(() => {
@@ -185,7 +186,7 @@ export default {
       this.emitData();
     },
     updateFieldData(field) {
-      this.fields = this.fields.filter(item => {
+      this.fields = this.fields.filter((item) => {
         return item.key !== field.key;
       });
 
@@ -195,7 +196,7 @@ export default {
       if (this.formValid) {
         this.$emit(
           'updated',
-          this.fields.filter(field => {
+          this.fields.filter((field) => {
             return !field.disabled;
           })
         );
@@ -207,7 +208,7 @@ export default {
       }
 
       return item.key;
-    }
-  }
+    },
+  },
 };
 </script>
