@@ -11,9 +11,8 @@
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.28",
     "core-js": "^2.6.5",
-    "node-sass": "^7.0.0",
-    "sass-loader": "^7.3.1",
     "css-loader": "^5.2.6",
+    "sass-loader": "^7.3.1",
     "vue": "^2.6.10",
     "vue-multiselect": "^2.1.6"
   },
@@ -27,6 +26,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-vue": "^5.0.0",
     "prettier": "^1.18.2",
+    "sass": "^1.70.0",
     "vue-template-compiler": "^2.6.10"
   }
 }
