@@ -1,0 +1,10 @@
+version = 1
+SPDX-PackageName = "webcomp-configtool"
+SPDX-PackageSupplier = "NOI Techpark <digital@noi.bz.it>"
+SPDX-PackageDownloadLocation = "https://github.com/noi-techpark/webcomp-configtool"
+
+[[annotations]]
+path = [".github/**", "infrastructure/**", ".gitignore", ".pre-commit-config.yaml", "LICENSE.md", ".editorconfig", ".env.example", ".browserslistrc", ".prettierrc", "yarn.lock", "**.png", "**.json", "**.svg", "**.map", "dist/wcs-config-tool.**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "(c) NOI Techpark <digital@noi.bz.it>"
+SPDX-License-Identifier = "CC0-1.0"

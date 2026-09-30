@@ -1,8 +1,0 @@
-Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: webcomp-configtool
-Upstream-Contact: NOI Techpark <digital@noi.bz.it>
-Source: https://github.com/noi-techpark/webcomp-configtool
-
-Files: .github/* infrastructure/* .gitignore .pre-commit-config.yaml LICENSE.md .editorconfig .env.example .browserslistrc .prettierrc yarn.lock *.png *.json *.svg *.map dist/wcs-config-tool.*
-Copyright: (c) NOI Techpark <digital@noi.bz.it>
-License: CC0-1.0
