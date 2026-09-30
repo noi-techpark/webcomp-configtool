@@ -50,8 +50,10 @@ export default {
     }
   },
   data() {
+    // Preselect the default from the manifest, like the select field does
+    const def = this.options.default;
     return {
-      value: []
+      value: Array.isArray(def) ? [...def] : def ? [def] : []
     };
   },
   computed: {
